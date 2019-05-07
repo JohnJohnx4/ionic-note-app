@@ -20,6 +20,7 @@ const httpOptions = {
 })
 export class NotesService {
   private ROOT_URL = 'http://localhost:5000';
+  // private ROOT_URL = 'https://johnc-noter.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
   getNotes() {
@@ -29,13 +30,13 @@ export class NotesService {
     return this.http.post(`${this.ROOT_URL}/api/notes`, { ...note, user: testUser._id }, httpOptions);
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+  // private handleError<T>(operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
+  //     // TODO: send the error to remote logging infrastructure
+  //     console.error(error); // log to console instead
 
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+  //     // Let the app keep running by returning an empty result.
+  //     return of(result as T);
+  //   };
+  // }
 }

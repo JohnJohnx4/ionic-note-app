@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from '../../services/notes.service';
+import { Note } from '../../models/note.model';
 
 @Component({
   selector: 'app-note',
@@ -6,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note.component.scss'],
 })
 export class NoteComponent implements OnInit {
+  notes: Note[];
+  constructor(private notesService: NotesService) {}
 
-  constructor() { }
+  getNotes() {
+    this.notesService.getNotes().subscribe(
+      (notes: any) => {
+        console.log(notes);
+        this.notes = notes.success;
+      },
+      err => console.log(err)
+    );
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getNotes();
+  }
 
+  toggleEdit(id) {
+    console.log(id);
+  }
 }
