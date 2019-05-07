@@ -28,4 +28,8 @@ export class NoteComponent implements OnInit {
   toggleEdit(id) {
     console.log(id);
   }
+
+  handleAddNote() {
+    console.log('handle add note works!');
+  }
 }
