@@ -31,7 +31,7 @@ export class NotesPage implements OnInit {
         buttons: [
           {
             text: 'Logout',
-            handler: () => this.router.navigateByUrl('/home')
+            handler: () => this.router.navigateByUrl('/')
           },
           {
             text: 'No',

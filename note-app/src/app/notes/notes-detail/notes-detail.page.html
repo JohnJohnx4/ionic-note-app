@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title>Single Note</ion-title>
     <ion-buttons slot="primary">
+      <ion-button (click)="toggleEdit()">
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+      </ion-button>
       <ion-button (click)="deleteNote()">
         <ion-icon name="trash" slot="icon-only"></ion-icon>
       </ion-button>
@@ -13,7 +16,7 @@
 </ion-header>
 
 <ion-content margin-top>
-  <ion-card>
+  <ion-card  *ngIf="!editNoteToggle; else editForm">
     <ion-card-header>
       <ion-card-title>{{ loadedNote.title }}</ion-card-title>
       <ion-card-subtitle>{{
@@ -22,4 +25,19 @@
     </ion-card-header>
     <ion-card-content>{{ loadedNote.content }}</ion-card-content>
   </ion-card>
-</ion-content>
+
+  <ng-template #editForm>
+    <ion-card padding>
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input [(ngModel)]="loadedNote.title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Content</ion-label>
+        <ion-textarea [(ngModel)]="loadedNote.content"></ion-textarea>
+      </ion-item>
+      <ion-button margin-top (click)="editNote()">Submit</ion-button>
+    </ion-card>
+  </ng-template>
+  </ion-content>
+  

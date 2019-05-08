@@ -11,6 +11,7 @@ import { AlertController, Events } from '@ionic/angular';
 })
 export class NotesDetailPage implements OnInit {
   loadedNote;
+  editNoteToggle = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,6 +34,46 @@ export class NotesDetailPage implements OnInit {
         err => console.log(err)
       );
     });
+  }
+
+  toggleEdit() {
+    this.editNoteToggle = !this.editNoteToggle;
+  }
+
+  editNote() {
+    this.alertCtrl
+      .create({
+        header: 'Edit note',
+        message: 'Submit your edits?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel'
+          },
+          {
+            text: 'Submit',
+            handler: () => {
+              this.notesService
+                .editNote(
+                  {
+                    title: this.loadedNote.title,
+                    content: this.loadedNote.content
+                  },
+                  this.loadedNote._id
+                )
+                .subscribe((note: any) => {
+                  if (note.updated) {
+                    this.events.publish('getNotes');
+                    this.router.navigateByUrl('/notes');
+                  }
+                });
+            }
+          }
+        ]
+      })
+      .then(alertEl => {
+        alertEl.present();
+      });
   }
 
   deleteNote() {
