@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start" (click)="handleLogout()">
+      <ion-icon
+        name="arrow-back"
+        slot="icon-only"
+      ></ion-icon>
+    </ion-button>
+    <ion-title>Notes Page</ion-title>
+    <ion-button color="tertiary" slot="secondary" href="/notes/add">
+      <ion-icon name="add"></ion-icon>Add Note</ion-button
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-note></app-note>
+</ion-content>
