@@ -15,8 +15,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class NotesService {
-  private ROOT_URL = 'http://localhost:5000';
-  // private ROOT_URL = 'https://johnc-noter.herokuapp.com/';
+  // private ROOT_URL = 'http://localhost:5000';
+  private ROOT_URL = 'https://johnc-noter.herokuapp.com';
 
   constructor(private http: HttpClient) {}
   getNotes() {

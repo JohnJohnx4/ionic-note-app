@@ -23,6 +23,10 @@ core/test-components/
 core/css/
 angular/css/
 $RECYCLE.BIN/
+platforms/
+plugins/
+www/
+resources/
 
 .DS_Store
 Thumbs.db

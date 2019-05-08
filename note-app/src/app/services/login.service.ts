@@ -8,22 +8,30 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
-  private ROOT_URL = 'http://localhost:5000';
-  // private ROOT_URL = 'https://johnc-noter.herokuapp.com/';
+  // private ROOT_URL = 'http://localhost:5000';
+  private ROOT_URL = 'https://johnc-noter.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 
   loginUser(email, password) {
-    console.log(email, password)
-    return this.http.post(`${this.ROOT_URL}/api/login`, {
-      email,
-      password
-    });
+    console.log(email, password);
+    return this.http.post(
+      `${this.ROOT_URL}/api/login`,
+      {
+        email,
+        password
+      },
+      httpOptions
+    );
   }
   registerUser(email, password) {
-    return this.http.post(`${this.ROOT_URL}/api/users/register`, {
-      email,
-      password
-    });
+    return this.http.post(
+      `${this.ROOT_URL}/api/users/register`,
+      {
+        email,
+        password
+      },
+      httpOptions
+    );
   }
 }
