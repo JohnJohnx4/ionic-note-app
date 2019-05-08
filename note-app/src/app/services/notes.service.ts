@@ -26,8 +26,15 @@ export class NotesService {
   getNotes() {
     return this.http.get(`${this.ROOT_URL}/api/notes`);
   }
+  getSingleNote(noteId) {
+    return this.http.get(`${this.ROOT_URL}/api/notes/${noteId}`);
+  }
   addNote(note) {
-    return this.http.post(`${this.ROOT_URL}/api/notes`, { ...note, user: testUser._id }, httpOptions);
+    const {title, content} = note;
+    return this.http.post(`${this.ROOT_URL}/api/notes`, { title, content, user: testUser._id }, httpOptions);
+  }
+  deleteNote(noteId) {
+    return this.http.delete(`${this.ROOT_URL}/api/notes/${noteId}`);
   }
 
   // private handleError<T>(operation = 'operation', result?: T) {

@@ -13,10 +13,13 @@ const routes: Routes = [
     {
       path: 'add',
       loadChildren: './notes/add-note/add-note.module#AddNotePageModule'
+    },
+    {
+      path: ':noteId',
+      loadChildren: './notes/notes-detail/notes-detail.module#NotesDetailPageModule'
     }
     ]
-  },
-  { path: 'notes-detail', loadChildren: './notes/notes-detail/notes-detail.module#NotesDetailPageModule' }
+  }
 ];
 
 @NgModule({

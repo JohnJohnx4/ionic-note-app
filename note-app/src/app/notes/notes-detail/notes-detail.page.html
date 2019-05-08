@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>notes-detail</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" href="/notes/add">
+      <ion-back-button defaultHref="/notes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Single Note</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="deleteNote()">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content margin-top>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ loadedNote.title }}</ion-card-title>
+      <ion-card-subtitle>{{
+        loadedNote.date | date: 'short'
+      }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>{{ loadedNote.content }}</ion-card-content>
+  </ion-card>
 </ion-content>
