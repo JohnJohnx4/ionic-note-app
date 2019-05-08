@@ -1,4 +1,0 @@
-#Tue May 07 22:59:15 EDT 2019
-base.0=D\:\\code\\ionic\\ionic-note-app\\note-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex
