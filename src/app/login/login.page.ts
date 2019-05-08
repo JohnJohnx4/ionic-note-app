@@ -41,8 +41,8 @@ export class LoginPage implements OnInit {
     this.loginService.registerUser(this.username, this.password).subscribe(
       (res: any) => {
         if (res.success) {
-          const token = res.token;
-          localStorage.setItem('jwt', token);
+          localStorage.setItem('jwt', res.token);
+          localStorage.setItem('user', res.success);
           this.router.navigateByUrl('/notes');
         }
       },
@@ -59,9 +59,9 @@ export class LoginPage implements OnInit {
     }
     this.loginService.loginUser(this.username, this.password).subscribe(
       (res: any) => {
-        if (res) {
-          const token = res.token;
-          localStorage.setItem('jwt', token);
+        if (res.success) {
+          localStorage.setItem('jwt', res.token);
+          localStorage.setItem('user', res.success);
           this.router.navigateByUrl('/notes');
         }
       },

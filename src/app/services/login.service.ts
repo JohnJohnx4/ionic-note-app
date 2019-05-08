@@ -21,7 +21,6 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   loginUser(email, password) {
-    console.log(email, password);
     return this.http.post(
       `${this.ROOT_URL}/api/login`,
       {

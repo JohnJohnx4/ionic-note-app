@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const testUser = {
-  _id: '5c8bd9db2f000f4b882d323f',
-  email: 'test@test.com',
-  password: '$2b$11$L32a0reYh4jOSdOrGGS9ouuS9RV70XHcnGLh63wcjCX8JYb/JA/OS',
-  date: '2019-03-15T16:59:07.740Z'
-};
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -27,9 +21,10 @@ export class NotesService {
   }
   addNote(note) {
     const { title, content } = note;
+    const user = localStorage.getItem('user');
     return this.http.post(
       `${this.ROOT_URL}/api/notes`,
-      { title, content, user: testUser._id },
+      { title, content, user },
       httpOptions
     );
   }
