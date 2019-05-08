@@ -25,8 +25,8 @@ angular/css/
 $RECYCLE.BIN/
 platforms/
 plugins/
-www/
 resources/
+www/
 
 .DS_Store
 Thumbs.db
